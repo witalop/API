@@ -1,0 +1,13 @@
+Inicio:
+yarn init
+
+Add no package.json:
+"scripts": {
+    "dev": "nodemon src/server.js"
+  }
+
+Iniciar nodemon:
+npm i nodemon -D
+
+Iniciar o knex, o Postgress e o Express:
+npm i knex pg express
