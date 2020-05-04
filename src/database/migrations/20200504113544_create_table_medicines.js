@@ -1,0 +1,16 @@
+exports.up = function(knex) {
+    knex.schema.dropTable('medicines').then(
+        knex.schema.createTable('medicines', function(table) {
+            table.increments('id')
+            table.text('nome').notNullable() 
+            table.text('farmacia').notNullable()
+            table.float('valor').notNullable()
+            table.text('dose').notNullable()
+
+        //table.timestamp('created_at').defaultTo(knex.fn.now())
+    }))
+};
+
+exports.down = function(knex) {
+    return knex.schema.dropTable('medicines')
+};

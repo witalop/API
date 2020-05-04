@@ -11,3 +11,30 @@ npm i nodemon -D
 
 Iniciar o knex, o Postgress e o Express:
 npm i knex pg express
+
+Importar o express no servidor e colocar para ouvir a porta:
+const express = require('express')
+const app = express()
+
+app.listen(3333, () => console.log('Server is running'))
+
+Iniciar o knex:
+npx knex init
+
+Configurar o knexfile.
+Criar pasta database com o index.js escrito:
+
+const knexfile = require('../../knexfile')
+const knex = require('knex')(knexfile.development)
+
+module.exports = knex
+
+Criar migration:
+npx knex migrate:make create_table_medicines
+
+Rodar a ultima migraçao:
+npx knex migrate:
+
+Criar seed:
+npx knex seed:make [NOME DA SEED]
+npx knex seed:run
